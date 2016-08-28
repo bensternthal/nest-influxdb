@@ -1,0 +1,17 @@
+{
+  "name": "nest-influxdb",
+  "version": "1.0.0",
+  "description": "Nest To InfluxDB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Benjamin Sternthal",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "influx": "^4.2.1",
+    "nconf": "^0.8.4",
+    "slackbots": "^0.5.2",
+    "unofficial-nest-api": "^0.1.4"
+  }
+}
