@@ -6,5 +6,9 @@
     "influx_db": "",
     "nest_username": "",
     "nest_password": "",
-    "nest_id": ""
+    "nest_id": "",
+    "slackbot": {
+        "api_token": "",
+        "channel": ""
+    }
 }
