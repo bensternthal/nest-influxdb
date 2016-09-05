@@ -16,15 +16,15 @@ var params = {icon_emoji: ':nest:'};
 bot.postMessageToGroup(channel, 'Nest Has Started', params);
 
 function getData() {
-    Nest.getNestData().then(function(nestData) {
-        Influx.writeInflux(nestData);
-        // Every 5 minutes send data.
-        setTimeout(getData, 300000);
 
-    }, function(error) {
-        bot.postMessageToGroup(channel, 'Nest Error: ' + error, params);
-        console.error('Failed!', error);
+    Nest.getNestData().then(Influx.writeInflux).then(function() {
+        setTimeout(getData, conf.get('update_frequency'));
+    }).catch(function(e) {
+        bot.postMessageToGroup(channel,  e.message);
+        // Retry
+        setTimeout(getData, conf.get('update_frequency'));
     });
+
 };
 
 getData();
